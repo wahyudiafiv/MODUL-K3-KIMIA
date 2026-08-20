@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul Interaktif K3 & Alat Lab Kimia</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- Header / Banner -->
+    <header class="bg-gradient-to-r from-teal-600 to-emerald-600 text-white py-8 px-4 shadow-lg text-center">
+        <div class="max-w-3xl mx-auto">
+            <span class="bg-teal-800 text-teal-100 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Modul Kimia SMA</span>
+            <h1 class="text-2xl sm:text-4xl font-extrabold mt-3 mb-2 leading-tight">E-Modul Interaktif: Keselamatan Kerja & Alat Lab Kimia</h1>
+            <p class="text-teal-100 text-sm sm:text-base">Panduan Praktikum Aman dan Simulasi Laboratorium Virtual</p>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="max-w-3xl mx-auto w-full p-4 sm:p-6 space-y-8 flex-grow">
+
+        <!-- Pendahuluan Singkat -->
+        <section class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-lg font-bold text-slate-900 mb-2 border-b pb-2 border-slate-100 flex items-center gap-2">
+                <i class="fa-solid font-bold fa-shield-halved text-teal-600"></i> Mengapa K3 Lab Itu Penting?
+            </h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+                Laboratorium kimia adalah tempat yang menyenangkan untuk mengeksplorasi reaksi kimia, namun memiliki potensi bahaya bahan kimia beracun, korosif, dan mudah terbakar. Mematuhi prosedur Keselamatan dan Kesehatan Kerja (K3) adalah syarat mutlak sebelum melakukan praktikum.
+            </p>
+        </section>
+
+        <!-- Tabel APD Wajib -->
+        <section class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-user-shield text-teal-600"></i> Alat Pelindung Diri (APD) Wajib
+            </h2>
+            
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-sm border-collapse">
+                    <thead>
+                        <tr class="bg-slate-100 text-slate-700">
+                            <th class="p-3 rounded-l-lg">APD</th>
+                            <th class="p-3">Fungsi Utama</th>
+                            <th class="p-3 rounded-r-lg">Potensi Bahaya</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr>
+                            <td class="p-3 font-semibold text-teal-700 whitespace-nowrap">Jas Laboratorium</td>
+                            <td class="p-3 text-slate-600">Melindungi tubuh dan pakaian dari percikan bahan kimia.</td>
+                            <td class="p-3 text-slate-500 text-xs">Luka bakar kimia, noda zat korosif.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold text-teal-700 whitespace-nowrap">Kacamata Goggle</td>
+                            <td class="p-3 text-slate-600">Melindungi mata dari cipratan asam/basa dan gas berbahaya.</td>
+                            <td class="p-3 text-slate-500 text-xs">Iritasi mata, kerusakan kornea permanen.</td>
+                        </tr>
+                        <tr>
+                            <td class="p-3 font-semibold text-teal-700 whitespace-nowrap">Sarung Tangan Nitril</td>
+                            <td class="p-3 text-slate-600">Melindungi kulit tangan dari kontak langsung reagen berbahaya.</td>
+                            <td class="p-3 text-slate-500 text-xs">Luka iritasi, penyerapan racun via kulit.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Tautan Simulasi Lab Virtual -->
+        <section class="bg-gradient-to-br from-teal-50 to-emerald-50 p-5 rounded-2xl border border-teal-100">
+            <h2 class="text-lg font-bold text-teal-900 mb-1 flex items-center gap-2">
+                <i class="fa-solid fa-flask text-teal-600"></i> Simulasi Laboratorium Virtual
+            </h2>
+            <p class="text-xs text-teal-700 mb-4">Uji coba praktikum secara mandiri melalui platform interaktif berikut:</p>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <a href="http://chemcollective.org/vlabs" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center justify-between p-3 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-teal-500 hover:shadow-md transition duration-200 group">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-teal-100 text-teal-700 rounded-lg group-hover:bg-teal-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-laptop-code text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-sm">ChemCollective</p>
+                            <p class="text-xs text-slate-500">Virtual Lab Stoikiometri & Larutan</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-teal-600"></i>
+                </a>
+
+                <a href="https://phet.colorado.edu/sims/html/ph-scale/latest/ph-scale_all.html" target="_blank" rel="noopener noreferrer" 
+                   class="flex items-center justify-between p-3 bg-white rounded-xl shadow-sm border border-slate-200 hover:border-teal-500 hover:shadow-md transition duration-200 group">
+                    <div class="flex items-center gap-3">
+                        <div class="p-2 bg-emerald-100 text-emerald-700 rounded-lg group-hover:bg-emerald-600 group-hover:text-white transition">
+                            <i class="fa-solid fa-vial text-lg"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-slate-800 text-sm">PhET Interactive</p>
+                            <p class="text-xs text-slate-500">Simulasi Skala pH & Asam Basa</p>
+                        </div>
+                    </div>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover:text-emerald-600"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Kuis Interaktif -->
+        <section class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
+            <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+                <i class="fa-solid fa-pen-to-square text-teal-600"></i> Kuis Pemahaman K3
+            </h2>
+
+            <form id="quizForm" class="space-y-6">
+                <!-- Soal 1 -->
+                <div class="space-y-2">
+                    <p class="font-semibold text-sm text-slate-800">1. Alat Pelindung Diri (APD) yang berfungsi khusus untuk mencegah iritasi dan luka permanen pada mata akibat percikan asam encer adalah...</p>
+                    <div class="space-y-1.5 text-sm">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q1" value="A" class="accent-teal-600">
+                            <span>A. Jas Laboratorium lengan panjang</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q1" value="B" class="accent-teal-600">
+                            <span>B. Kacamata Safety Goggle</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q1" value="C" class="accent-teal-600">
+                            <span>C. Masker Kain</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q1" value="D" class="accent-teal-600">
+                            <span>D. Sarung Tangan Kain</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Soal 2 -->
+                <div class="space-y-2">
+                    <p class="font-semibold text-sm text-slate-800">2. Tindakan pertama yang PALING TEPAT ketika kulit tangan Anda secara tidak sengaja terkena tumpahan larutan asam sulfat cair adalah...</p>
+                    <div class="space-y-1.5 text-sm">
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q2" value="A" class="accent-teal-600">
+                            <span>A. Mengusapnya dengan tisu kering hingga bersih</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q2" value="B" class="accent-teal-600">
+                            <span>B. Membilas dengan air mengalir terus-menerus selama beberapa menit</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q2" value="C" class="accent-teal-600">
+                            <span>C. Mengolesinya langsung dengan krim pelembab</span>
+                        </label>
+                        <label class="flex items-center gap-3 p-2.5 rounded-lg border border-slate-200 cursor-pointer hover:bg-slate-50">
+                            <input type="radio" name="q2" value="D" class="accent-teal-600">
+                            <span>D. Menutupinya rapat-rapat dengan plester luka</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Tombol Submit -->
+                <button type="button" onclick="checkAnswers()" 
+                        class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl shadow transition duration-200 active:scale-[0.98]">
+                    Cek Hasil
+                </button>
+            </form>
+
+            <!-- Modal / Pop-up Hasil Kuis -->
+            <div id="resultBox" class="hidden mt-4 p-4 rounded-xl border">
+                <p id="scoreText" class="font-bold text-center text-lg"></p>
+                <p id="feedbackText" class="text-xs text-center mt-1 text-slate-600"></p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-4 text-center text-xs">
+        <p>© 2026 Modul Pembelajaran Kimia SMA — Keselamatan Kerja Laboratorium</p>
+    </footer>
+
+    <!-- Logic JavaScript untuk Evaluasi Kuis -->
+    <script>
+        function checkAnswers() {
+            // Kunci Jawaban
+            const answers = {
+                q1: "B",
+                q2: "B"
+            };
+
+            let score = 0;
+            const q1User = document.querySelector('input[name="q1"]:checked');
+            const q2User = document.querySelector('input[name="q2"]:checked');
+
+            if (!q1User || !q2User) {
+                alert("Harap jawab semua pertanyaan kuis terlebih dahulu!");
+                return;
+            }
+
+            if (q1User.value === answers.q1) score += 50;
+            if (q2User.value === answers.q2) score += 50;
+
+            const resultBox = document.getElementById('resultBox');
+            const scoreText = document.getElementById('scoreText');
+            const feedbackText = document.getElementById('feedbackText');
+
+            resultBox.classList.remove('hidden', 'bg-red-50', 'border-red-200', 'bg-emerald-50', 'border-emerald-200');
+
+            if (score === 100) {
+                resultBox.classList.add('bg-emerald-50', 'border-emerald-200');
+                scoreText.className = "font-bold text-center text-lg text-emerald-800";
+                scoreText.innerHTML = `<i class="fa-solid fa-circle-check"></i> Skor Anda: ${score} / 100`;
+                feedbackText.innerText = "Sempurna! Anda memahami prosedur keselamatan kerja di laboratorium dengan sangat baik.";
+            } else {
+                resultBox.classList.add('bg-red-50', 'border-red-200');
+                scoreText.className = "font-bold text-center text-lg text-red-800";
+                scoreText.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Skor Anda: ${score} / 100`;
+                feedbackText.innerText = "Beberapa jawaban belum tepat. Pelajari kembali tabel APD dan prosedur K3 di atas, lalu coba lagi!";
+            }
+        }
+    </script>
+</body>
+</html>
