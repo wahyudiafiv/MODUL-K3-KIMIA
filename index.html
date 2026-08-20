@@ -78,7 +78,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
                 <!-- Korosif -->
                 <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex flex-col items-center text-center">
-                    <img src="beracun.webp">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/GHS-pictogram-acid.svg/120px-GHS-pictogram-acid.svg.png" alt="Simbol Korosif" class="w-16 h-16 mb-2">
                     <h3 class="font-bold text-sm text-slate-800">Korosif (Corrosive)</h3>
                     <p class="text-xs text-slate-600 mt-1">Dapat merusak jaringan hidup, menyebabkan luka bakar berat pada kulit, serta mengikis logam.</p>
                     <span class="mt-2 text-[10px] bg-slate-200 text-slate-700 px-2 py-0.5 rounded-full font-medium">Contoh: HCl, H₂SO₄, NaOH</span>
@@ -140,13 +140,31 @@
             </div>
         </section>
 
-        <!-- Kuis Interaktif -->
+        <!-- Kuis Interaktif & Identitas Siswa -->
         <section class="bg-white p-5 rounded-2xl shadow-sm border border-slate-100">
             <h2 class="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
                 <i class="fa-solid fa-pen-to-square text-teal-600"></i> Kuis Pemahaman K3
             </h2>
 
             <form id="quizForm" class="space-y-6">
+                
+                <!-- Identitas Siswa -->
+                <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-3">
+                    <h3 class="text-xs font-bold uppercase tracking-wider text-slate-500">Identitas Siswa</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Nama Lengkap *</label>
+                            <input type="text" id="studentName" placeholder="Masukkan nama..." required
+                                   class="w-full text-sm p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold text-slate-700 mb-1">Kelas *</label>
+                            <input type="text" id="studentClass" placeholder="Contoh: XI-1" required
+                                   class="w-full text-sm p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-teal-500 bg-white">
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Soal 1 -->
                 <div class="space-y-2">
                     <p class="font-semibold text-sm text-slate-800">1. Alat Pelindung Diri (APD) yang berfungsi khusus untuk mencegah iritasi dan luka permanen pada mata akibat percikan asam encer adalah...</p>
@@ -194,9 +212,9 @@
                 </div>
 
                 <!-- Tombol Submit -->
-                <button type="button" onclick="checkAnswers()" 
-                        class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl shadow transition duration-200 active:scale-[0.98]">
-                    Cek Hasil
+                <button type="button" id="submitBtn" onclick="checkAnswers()" 
+                        class="w-full bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl shadow transition duration-200 active:scale-[0.98] flex items-center justify-center gap-2">
+                    <span>Kirim & Cek Hasil</span>
                 </button>
             </form>
 
@@ -204,6 +222,7 @@
             <div id="resultBox" class="hidden mt-4 p-4 rounded-xl border">
                 <p id="scoreText" class="font-bold text-center text-lg"></p>
                 <p id="feedbackText" class="text-xs text-center mt-1 text-slate-600"></p>
+                <p id="syncStatus" class="text-[11px] text-center mt-2 font-medium"></p>
             </div>
         </section>
 
@@ -214,30 +233,40 @@
         <p>© 2026 Modul Pembelajaran Kimia SMA — Keselamatan Kerja Laboratorium</p>
     </footer>
 
-    <!-- Logic JavaScript untuk Evaluasi Kuis -->
+    <!-- Logic JavaScript untuk Evaluasi & Pengiriman Nilai ke Google Sheets -->
     <script>
-        function checkAnswers() {
-            // Kunci Jawaban
-            const answers = {
-                q1: "B",
-                q2: "B"
-            };
+        // MASUKKAN URL GOOGLE APPS SCRIPT WEB APP ANDA DI SINI
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzAVVxfztobyt4jOSRXEVQCrSIR23gunvd_Nhg-kEc011docdIw_DddDqpD6KYpaZfVDA/exec";
 
-            let score = 0;
+        async function checkAnswers() {
+            const nameInput = document.getElementById('studentName').value.trim();
+            const classInput = document.getElementById('studentClass').value.trim();
+            const submitBtn = document.getElementById('submitBtn');
+
+            if (!nameInput || !classInput) {
+                alert("Harap isi Nama Lengkap dan Kelas terlebih dahulu!");
+                return;
+            }
+
             const q1User = document.querySelector('input[name="q1"]:checked');
             const q2User = document.querySelector('input[name="q2"]:checked');
 
             if (!q1User || !q2User) {
-                alert("Harap jawab semua pertanyaan kuis terlebih dahulu!");
+                alert("Harap jawab semua pertanyaan kuis!");
                 return;
             }
 
+            // Hitung Skor
+            const answers = { q1: "B", q2: "B" };
+            let score = 0;
             if (q1User.value === answers.q1) score += 50;
             if (q2User.value === answers.q2) score += 50;
 
+            // Tampilkan Hasil Lokal
             const resultBox = document.getElementById('resultBox');
             const scoreText = document.getElementById('scoreText');
             const feedbackText = document.getElementById('feedbackText');
+            const syncStatus = document.getElementById('syncStatus');
 
             resultBox.classList.remove('hidden', 'bg-red-50', 'border-red-200', 'bg-emerald-50', 'border-emerald-200');
 
@@ -250,7 +279,42 @@
                 resultBox.classList.add('bg-red-50', 'border-red-200');
                 scoreText.className = "font-bold text-center text-lg text-red-800";
                 scoreText.innerHTML = `<i class="fa-solid fa-circle-xmark"></i> Skor Anda: ${score} / 100`;
-                feedbackText.innerText = "Beberapa jawaban belum tepat. Pelajari kembali tabel APD dan prosedur K3 di atas, lalu coba lagi!";
+                feedbackText.innerText = "Beberapa jawaban belum tepat. Pelajari kembali materi di atas dan coba lagi!";
+            }
+
+            // Kirim Data ke Google Sheets
+            if (SCRIPT_URL && SCRIPT_URL !== "NILAI_WEB_APP_URL_ANDA_DI_SINI") {
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                syncStatus.className = "text-[11px] text-center mt-2 font-medium text-slate-500";
+                syncStatus.innerText = "Mengirim nilai ke Google Sheets...";
+
+                try {
+                    const payload = new URLSearchParams({
+                        nama: nameInput,
+                        kelas: classInput,
+                        skor: score
+                    });
+
+                    await fetch(SCRIPT_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                        body: payload
+                    });
+
+                    syncStatus.className = "text-[11px] text-center mt-2 font-medium text-emerald-600";
+                    syncStatus.innerText = "✓ Nilai berhasil tersimpan di Google Sheets guru.";
+                } catch (err) {
+                    syncStatus.className = "text-[11px] text-center mt-2 font-medium text-red-600";
+                    syncStatus.innerText = "× Gagal mengirim ke Google Sheets. Periksa koneksi internet Anda.";
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                }
+            } else {
+                syncStatus.className = "text-[11px] text-center mt-2 font-medium text-amber-600";
+                syncStatus.innerText = "(Catatan Guru: Tautan Web App Google Sheets belum dikonfigurasi).";
             }
         }
     </script>
